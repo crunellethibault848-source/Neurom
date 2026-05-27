@@ -28,7 +28,7 @@ export default function AuthPage() {
       if (mode === 'login') {
         const { error } = await supabase.auth.signInWithPassword({ email, password })
         if (error) throw error
-        router.push('/feed')
+        window.location.href = '/feed'
       } else if (mode === 'register') {
         if (username.length < 3) throw new Error('Le nom d\'utilisateur doit contenir au moins 3 caractères')
         if (!/^[a-z0-9_]+$/.test(username)) throw new Error('Nom d\'utilisateur: lettres minuscules, chiffres et _ uniquement')
