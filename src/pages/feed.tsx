@@ -26,7 +26,9 @@ export default function FeedPage() {
   const [refreshing, setRefreshing] = useState(false)
 
   useEffect(() => {
-    if (!authLoading && !user) router.push('/')
+    if (!authLoading && !user) {
+      router.replace('/')
+    }
   }, [user, authLoading])
 
   const fetchPosts = useCallback(async () => {
